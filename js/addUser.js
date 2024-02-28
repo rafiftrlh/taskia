@@ -1,0 +1,1 @@
+// Penghubung ui dan model
