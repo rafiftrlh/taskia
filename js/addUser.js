@@ -14,9 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const result = userManager.saveUser(userData);
 
     if (result.success) {
+      alert(result.message);
       return (window.location.href = "/signin.html");
     } else {
-      console.log("Data gagal disimpan");
+      alert(result.message);
     }
   });
 });

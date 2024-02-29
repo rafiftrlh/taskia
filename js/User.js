@@ -5,18 +5,28 @@ class User {
     this.users = this.getUsers() || [];
   }
 
+  // save user baru / sign up
   saveUser(userData) {
-    const newUser = {
-      id: Date.now(),
-      ...userData,
-    };
+    // Handle Error
+    try {
+      const newUser = {
+        id: Date.now(),
+        ...userData,
+      };
 
-    this.users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(this.users));
+      this.users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(this.users));
 
-    return {
-      success: true,
-    };
+      return {
+        success: true,
+        message: "Data berhasil disimpan",
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: "Data gagal disimpan",
+      };
+    }
   }
 
   signInUser(usernameByInput) {
