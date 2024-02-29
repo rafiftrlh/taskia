@@ -14,7 +14,29 @@ class User {
     this.users.push(newUser);
     localStorage.setItem("users", JSON.stringify(this.users));
 
-    return (window.location.href = "/signin.html");
+    return {
+      success: true,
+    };
+  }
+
+  signInUser(usernameByInput) {
+    // pemeriksaan data user di local storage
+    const userExsist = this.users.some(
+      (user) => user.username.toLowerCase() === usernameByInput.toLowerCase()
+    );
+
+    // pengembalian data ke signIn.js controller ketika success
+    if (userExsist) {
+      return {
+        success: true,
+        username: usernameByInput,
+      };
+    } else {
+      return {
+        success: false,
+        message: "User tidak ditemukan",
+      };
+    }
   }
 
   getUsers() {
