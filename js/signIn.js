@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const result = userManager.signInUser(usernameByInput);
 
     if (result.success) {
-      alert(`Sukses login dengan akun @${result.username}`);
+      alert(result.message);
       return (window.location.href = "/tasks.html");
     } else {
       alert(result.message);

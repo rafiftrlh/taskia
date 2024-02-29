@@ -2,10 +2,10 @@
 
 class User {
   constructor() {
-    this.users = this.getUsers() || [];
+    this.users = this.getUsers();
   }
 
-  // save user baru / sign up
+  // save user baru / register
   saveUser(userData) {
     // Handle Error
     try {
@@ -37,14 +37,16 @@ class User {
 
     // pengembalian data ke signIn.js controller ketika success
     if (userExsist) {
+      localStorage.setItem("usernameLogIn", usernameByInput); // membuat row data baru untuk jika berhasil log in
+
       return {
         success: true,
-        username: usernameByInput,
+        message: `Sukses login dengan akun @${usernameByInput}`,
       };
     } else {
       return {
         success: false,
-        message: "User tidak ditemukan",
+        message: `Username @${usernameByInput} tidak ditemukan`,
       };
     }
   }
