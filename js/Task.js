@@ -8,6 +8,7 @@ class Task {
       const newTaskData = {
         id: Date.now(),
         isCompleted: false,
+        created_at: new Date().toISOString().split("T")[0], // Format: "yyyy-mm-dd"
         ...taskData,
       };
 

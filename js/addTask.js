@@ -20,8 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (result.success) {
       taskName.value = "";
       taskPriority.selectedIndex = 0;
+      console.log(new Date().toISOString());
 
       alert(result.message);
+      window.location.href = "/tasks.html";
       // return (window.location.href = "/signin.html");
     } else {
       alert(result.message);
