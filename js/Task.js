@@ -30,4 +30,20 @@ class Task {
   getTask() {
     return JSON.parse(localStorage.getItem("tasks"));
   }
+
+  completeTask(taskId) {
+    const findTask = this.tasks.find((task) => task.id == taskId);
+
+    if (findTask != null && findTask.isCompleted == false) {
+      findTask.isCompleted = true;
+      this.updateLocalStorage();
+    } else if (findTask != null && findTask.isCompleted == true) {
+      findTask.isCompleted = false;
+      this.updateLocalStorage();
+    }
+  }
+
+  updateLocalStorage() {
+    localStorage.setItem("tasks", JSON.stringify(this.tasks));
+  }
 }
