@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     btnDeleteTask.addEventListener("click", (e) => {
       const PARENT = e.target.parentElement.parentElement;
       const ID = PARENT.getAttribute("id");
+
+      MY_TASKS.deleteTask(ID);
+      window.location.reload();
     });
   });
 

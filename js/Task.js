@@ -43,6 +43,20 @@ class Task {
     }
   }
 
+  deleteTask(taskId) {
+    const findTaskIndex = this.tasks.findIndex((task) => task.id == taskId);
+
+    console.log(findTaskIndex);
+    console.log(this.tasks[findTaskIndex]);
+
+    if (findTaskIndex != -1) {
+      // Menggunakan splice untuk menghapus task dari array berdasarkan indeks
+      this.tasks.splice(findTaskIndex, 1);
+      console.log(this.tasks);
+      this.updateLocalStorage();
+    }
+  }
+
   updateLocalStorage() {
     localStorage.setItem("tasks", JSON.stringify(this.tasks));
   }
