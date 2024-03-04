@@ -54,4 +54,8 @@ class User {
   getUsers() {
     return JSON.parse(localStorage.getItem("users")) || [];
   }
+
+  logoutUser() {
+    localStorage.removeItem("usernameLogIn");
+  }
 }
